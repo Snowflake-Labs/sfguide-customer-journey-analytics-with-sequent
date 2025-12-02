@@ -6,7 +6,6 @@
 --
 -- Prerequisites:
 --   - setup.sql has been executed
---   - Your account supports Git integration (most trial accounts do)
 -- ===========================================================================
 
 USE ROLE ACCOUNTADMIN;
