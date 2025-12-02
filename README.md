@@ -1,5 +1,69 @@
-# Snowpath
+# Customer Journey Analytics with Sequent™
 
-Snowpath™ native Streamlit application allows users to easily and visually perform and deep dive into Path Analysis, Attribution Analysis, Association Analysis and event-based Prediction Modeling by simply specifying a few parameters in drop-down menus. Leveraging advanced techniques, Snowpath™ intuitively and visually helps identify touchpoints influencing customer (or machine) behaviours, targets them to create segments, performs cross-population behavioural comparisons, computes rule-based and ML-driven attribution models to understand the contribution of each event preceding a specific outcome, conducts association analysis to uncover hidden patterns and relationships between events and eventually predict outcomes based on event sequences. Snowpath™ is designed to be user-friendly and accessible to users with varying levels of technical expertise, making it a valuable tool for data-driven decision-making. Snowpath™ also leverages the interpretive and generative power of LLMs thanks to Snowflake AISQL to explain journeys, attribution models, association rules and derive insights (summarize and analyze results, describe behaviors and even suggest actions !)
+## Overview
 
-Identifying, visualizing and explaining paths can itself be actionable and often uncovers an area of interest for additional analysis. First, the picture revealed by path analysis can be further enriched with attribution and association analysis. Attribution helps quantify the contribution of individual touchpoint to a defined outcome, while association analysis uncovers relationships between events that frequently occur together. Together, these techniques provide a holistic understanding of event sequences, enabling data-driven decision-making and uncovering new opportunities for customer experience optimization. Second, path insights can be used directly to predict outcomes or to derive behavioral features (such as the frequency of specific patterns). These features can then be integrated into existing predictive models, enhancing their accuracy and enabling deeper behavioral segmentation. 
+Sequent™ native application allows users to easily and visually perform and deep dive into Path Analysis, Attribution Analysis, Association Analysis, Pattern Mining, Behavioral Segmentation and Predictive Modeling by simply specifying a few parameters in drop-down menus. Leveraging advanced techniques, Sequent™ intuitively and visually helps identify touchpoints influencing customer (or machine) behaviours, targets them to create segments, performs cross-population behavioural comparisons, computes rule-based and ML-driven attribution models to understand the contribution of each event preceding a specific outcome, conducts association analysis to uncover hidden patterns and relationships between events, discovers frequent sequential patterns and behavioral signatures through advanced pattern mining, and enables sophisticated behavioral segmentation to group customers based on their journey patterns and characteristics. Sequent™ also harnesses the interpretive and generative power of LLMs thanks to Snowflake AISQL to explain journeys, attribution models, association rules, pattern insights and derive insights (summarize and analyze results, describe behaviors and even suggest actions!)
+
+Visualizing and identifying paths can itself be actionable and often uncovers an area of interest for additional analysis. First, the picture revealed by path analysis can be further enriched with attribution analysis, association analysis, pattern mining, and behavioral segmentation. Attribution helps quantify the contribution of individual touchpoints to a defined outcome, association analysis uncovers relationships between events that frequently occur together, pattern mining discovers frequent sequential behaviors and hidden temporal dependencies, and behavioral segmentation groups customers into meaningful clusters based on their journey characteristics and patterns. Together, these techniques provide a comprehensive understanding of event sequences, enabling data-driven decision-making and uncovering new opportunities for optimization. Second, path insights can be used directly to predict outcomes (Predictive Modeling) or to derive behavioral features (such as the frequency of specific patterns and sequence signatures). These features can then be integrated into existing predictive models, enhancing their accuracy and enabling deeper customer understanding through advanced segmentation strategies.
+
+## Getting Started
+
+### Prerequisites
+- Snowflake account (trial accounts supported)
+- ACCOUNTADMIN role access
+
+### Simple 3-Step Setup
+
+**Step 1: Download the Setup Script**
+- Navigate to the `scripts/` folder in this repository
+- Download or copy the contents of `setup.sql`
+
+**Step 2: Run the Setup Script**
+1. Open **Snowflake Snowsight** (https://app.snowflake.com)
+2. Create a **new SQL Worksheet**
+3. **Paste the entire contents** of `setup.sql`
+4. Click **Run All** 
+
+The setup script will automatically:
+- ✅ Create a Snowpark-optimized warehouse (MEDIUM size)
+- ✅ Generate 5 industry datasets (~100K customer journeys per industry)
+  - Retail, Financial Services, Hospitality, Gaming, Food Delivery
+- ✅ Create stored procedures for Markov Chain and Shapley Value attribution
+- ✅ Deploy all 6 Streamlit applications directly from GitHub
+- ✅ Configure all necessary permissions and grants
+
+**Step 3: Access the Applications**
+
+Once the setup completes:
+1. In Snowsight, navigate to **Projects** → **Streamlit** (left sidebar)
+2. You'll see **"Customer Journey Analytics with Sequent"**
+3. Click to open and start exploring!
+
+**All 6 analytics applications are now available:**
+- Path Analysis
+- Attribution Modeling
+- Behavioral Segmentation
+- Association Analysis
+- Pattern Mining
+- Predictive Modeling
+
+## Repository Structure
+
+```
+├── README.md                              # This file
+├── SOLUTION_CENTER.md                     # Detailed solution documentation
+├── scripts/
+│   └── setup.sql                          # Complete database and Streamlit deployment script
+├── streamlit/
+│   ├── app.py                             # Main Streamlit application (landing page)
+│   ├── environment.yml                    # Python dependencies
+│   ├── assets/
+│   │   └── Sequent.png
+│   └── pages/                             # 5 analytics page modules
+│       ├── AssociationAnalysis.py
+│       ├── AttributionAnalysis.py
+│       ├── BehavioralSegmentation.py
+│       ├── PathAnalysis.py
+│       ├── PatternMining.py
+│       └── PredictiveModeling.py
+```

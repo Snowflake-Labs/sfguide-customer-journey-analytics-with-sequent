@@ -62,7 +62,7 @@ div[data-testid="stSuccess"] {
 }
 
 .custom-container-1 {
-    background-color: #f0f2f6 !important;
+    background-color: #f7f7f7 !important;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -95,7 +95,7 @@ div[data-testid="stSuccess"] * {
 }
 
 .stAlert[data-baseweb="notification"] {
-    background-color: #f0f2f6 !important;
+    background-color: #f7f7f7 !important;
     border: none !important;
     --baseRadius: 10px !important;
     baseRadius: 10px !important;
@@ -103,7 +103,7 @@ div[data-testid="stSuccess"] * {
 }
 
 .stAlert[data-baseweb="notification"] > div {
-    background-color: #f0f2f6 !important;
+    background-color: #f7f7f7 !important;
     --baseRadius: 10px !important;
     baseRadius: 10px !important;
     border-radius: 10px !important;
@@ -2083,28 +2083,28 @@ if all([uid, evt, tmstp]) and conv!= None and conv_value !="''":
              
          # Run the SQL
          crttblrawsmceventsref = session.sql(crttblrawsmceventsrefsql).collect()
-        
+       
          # Generate a unique comp table name
          def generate_unique_comptable_name(base_namec="RAWMCEVENTSCOMP"):
              unique_compid = uuid.uuid4().hex  # Generate a random UUID
              return f"{base_namec}_{unique_compid}"
          # Generate a unique table name
          unique_comptable_name = generate_unique_comptable_name()  
-        
+       
          # CREATE TABLE individiual compared (complement set) Paths 
          if unitoftime==None and timeout ==None :
-             crttblrawsmceventscompsql = f"""CREATE TABLE {unique_comptable_name} AS (
-             select {uid}, listagg({evt}, ',') within group (order by MSQ) as path
-             from  (select * from {tbl} where {uid} NOT IN (SELECT DISTINCT ({uid}) FROM {unique_reftable_name} ) AND
-             {evt} not in({excl3}) and {tmstp} < (SELECT MAX({tmstp})from {database}.{schema}.{tbl} where {conv}='{conv_value}' )and {tmstp} between DATE('{startdt_input}') and DATE('{enddt_input}') {sql_where_clause}) 
-                 match_recognize(
-                 {partitionby} 
-                 order by {tmstp} 
-                 measures match_number() as "MATCH_NUMBER", match_sequence_number() as msq, classifier() as cl 
-                 all rows per match
-                 pattern({markov_pattern})
-                 define {markov_define}
-             )  {groupby}) """
+            crttblrawsmceventscompsql = f"""CREATE TABLE {unique_comptable_name} AS (
+            select {uid}, listagg({evt}, ',') within group (order by MSQ) as path
+            from  (select * from {database}.{schema}.{tbl} where {uid} NOT IN (SELECT DISTINCT ({uid}) FROM {unique_reftable_name} ) AND
+            {evt} not in({excl3}) and {tmstp} < (SELECT MAX({tmstp})from {database}.{schema}.{tbl} where {conv}='{conv_value}' )and {tmstp} between DATE('{startdt_input}') and DATE('{enddt_input}') {sql_where_clause}) 
+                match_recognize(
+                {partitionby} 
+                order by {tmstp} 
+                measures match_number() as "MATCH_NUMBER", match_sequence_number() as msq, classifier() as cl 
+                all rows per match
+                pattern({markov_pattern})
+                define {markov_define}
+            )  {groupby}) """
 
              
          elif unitoftime != None and timeout !=None :

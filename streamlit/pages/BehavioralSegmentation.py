@@ -601,8 +601,8 @@ def add_writeback_functionality_segments_improved(results_df, clustering_method,
                         st.error(f"Error writing to Snowflake: {str(e)}", icon=":material/chat_error:")
             
 
-# Page config
-st.set_page_config(page_title="Event2Vec Behavioral Segmentation", layout="wide")
+# Page config (commented out - set in main app.py)
+#st.set_page_config(page_title="Event2Vec Behavioral Segmentation", layout="wide")
 
 # Custom CSS for consistent styling
 st.markdown("""
@@ -725,7 +725,7 @@ div[data-testid="stSuccess"] {
 }
 
 .custom-container-1 {
-    background-color: #f0f2f6 !important;
+    background-color: #f7f7f7 !important;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -754,7 +754,7 @@ div[data-testid="stSuccess"] * {
 }
 
 .stAlert[data-baseweb="notification"] {
-    background-color: #f0f2f6 !important;
+    background-color: #f7f7f7 !important;
     border: none !important;
     --baseRadius: 10px !important;
     baseRadius: 10px !important;
@@ -762,7 +762,7 @@ div[data-testid="stSuccess"] * {
 }
 
 .stAlert[data-baseweb="notification"] > div {
-    background-color: #f0f2f6 !important;
+    background-color: #f7f7f7 !important;
     --baseRadius: 10px !important;
     baseRadius: 10px !important;
     border-radius: 10px !important;
