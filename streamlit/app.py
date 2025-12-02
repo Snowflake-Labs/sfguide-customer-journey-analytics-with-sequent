@@ -622,14 +622,13 @@ def help():
 st.logo("../snowpathlogo.png",  size="large", link=None, icon_image="../snowpathlogo.png")
 
 pg = st.navigation([
-    #st.Page(home, title="Home", icon="*️⃣"),
     st.Page(home, title="Home", icon=":material/home:"),
-    st.Page("1_PathAnalysis.py", title="Path Analysis", icon=":material/conversion_path:"),
-    st.Page("2_AttributionAnalysis.py", title="Attribution Analysis", icon=":material/bar_chart:"),
-    st.Page("3_AssociationAnalysis.py", title="Association Analysis", icon=":material/graph_3:"),
-    st.Page("4_PatternMining.py", title="Pattern Mining", icon=":material/auto_awesome:"),
-    st.Page("5_PredictiveModeling.py", title="Predictive Modeling", icon=":material/model_training:"),
-    st.Page("6_BehavioralSegmentation.py", title="Behavioral Segmentation", icon=":material/groups:"),
+    st.Page("pages/PathAnalysis.py", title="Path Analysis", icon=":material/conversion_path:"),
+    st.Page("pages/AttributionAnalysis.py", title="Attribution Analysis", icon=":material/bar_chart:"),
+    st.Page("pages/AssociationAnalysis.py", title="Association Analysis", icon=":material/graph_3:"),
+    st.Page("pages/PatternMining.py", title="Pattern Mining", icon=":material/auto_awesome:"),
+    st.Page("pages/PredictiveModeling.py", title="Predictive Modeling", icon=":material/model_training:"),
+    st.Page("pages/BehavioralSegmentation.py", title="Behavioral Segmentation", icon=":material/groups:"),
     st.Page(help, title="User Guide", icon=":material/quick_reference:")
 ],expanded=False)
 pg.run()
