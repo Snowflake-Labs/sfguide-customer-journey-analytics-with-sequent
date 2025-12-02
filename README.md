@@ -12,29 +12,32 @@ Visualizing and identifying paths can itself be actionable and often uncovers an
 - Snowflake account (trial accounts supported)
 - ACCOUNTADMIN role access
 
-### Simple 3-Step Setup
+### Simple Setup
 
-**Step 1: Download the Setup Script**
-- Navigate to the `scripts/` folder in this repository
-- Download or copy the contents of `setup.sql`
-
-**Step 2: Run the Setup Script**
-1. Open **Snowflake Snowsight** (https://app.snowflake.com)
-2. Create a **new SQL Worksheet**
-3. **Paste the entire contents** of `setup.sql`
-4. Click **Run All** 
+**Step 1: Run the Setup Script**
+1. Navigate to the `scripts/` folder in this repository
+2. Open **Snowflake Snowsight** (https://app.snowflake.com)
+3. Create a **new SQL Worksheet**
+4. **Paste the entire contents** of `setup.sql`
+5. Click **Run All** 
 
 The setup script will automatically:
 - ✅ Create a Snowpark-optimized warehouse (MEDIUM size)
 - ✅ Generate 5 industry datasets (~100K customer journeys per industry)
   - Retail, Financial Services, Hospitality, Gaming, Food Delivery
 - ✅ Create stored procedures for Markov Chain and Shapley Value attribution
-- ✅ Deploy all 6 Streamlit applications directly from GitHub
 - ✅ Configure all necessary permissions and grants
+
+**Step 2: Deploy the Streamlit App**
+1. Create a **new SQL Worksheet**
+2. **Paste the entire contents** of `deploy_streamlit.sql`
+3. Click **Run All**
+
+This deploys the Streamlit app via Git integration from this repository.
 
 **Step 3: Access the Applications**
 
-Once the setup completes:
+Once deployment completes:
 1. In Snowsight, navigate to **Projects** → **Streamlit** (left sidebar)
 2. You'll see **"Customer Journey Analytics with Sequent"**
 3. Click to open and start exploring!
@@ -47,6 +50,10 @@ Once the setup completes:
 - Pattern Mining
 - Predictive Modeling
 
+## Cleanup
+
+To remove all resources created by this quickstart, run `scripts/teardown.sql` in a SQL Worksheet. This will drop the database, warehouse, role, and Streamlit app.
+
 ## Repository Structure
 
 ```
@@ -54,7 +61,9 @@ Once the setup completes:
 ├── LEGAL.md                               # Legal information
 ├── LICENSE                                # License file
 ├── scripts/
-│   └── setup.sql                          # Complete database and Streamlit deployment script
+│   ├── setup.sql                          # Database, data, and stored procedures setup
+│   ├── deploy_streamlit.sql               # Streamlit app deployment via Git integration
+│   └── teardown.sql                       # Cleanup script to remove all resources
 ├── streamlit/
 │   ├── app.py                             # Main Streamlit application (landing page)
 │   ├── environment.yml                    # Python dependencies
