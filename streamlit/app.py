@@ -2,6 +2,7 @@
 import json
 from operator import iconcat
 import streamlit as st
+from pathlib import Path
 
 # Configure Streamlit theme - GitHub Quickstart Blue
 st.set_page_config(
@@ -15,6 +16,10 @@ st.set_page_config(
         'About': None
     }
 )
+
+# For Snowflake Streamlit, use relative paths
+HERO_IMAGE_PATH = "assets/snowpathimage.png"
+LOGO_IMAGE_PATH = "assets/snowpathlogo.png"
 import pandas as pd
 import plotly.graph_objects as go
 import random
@@ -153,7 +158,7 @@ st.markdown("""
 def home():
         st.write("")
         st.write("")
-        st.image("assets/snowpathimage.png",use_container_width=True)
+        st.image(HERO_IMAGE_PATH, use_container_width=True)
         #st.image("https://i.postimg.cc/8PWc0cMf/snowpathlogo2.png",use_container_width=True)
     
         with st.expander("**ABOUT**"):
@@ -619,7 +624,7 @@ def help():
         </h5>
         """, unsafe_allow_html=True)
 
-st.logo("assets/snowpathlogo.png",  size="large", link=None, icon_image="assets/snowpathlogo.png")
+st.logo(LOGO_IMAGE_PATH, size="large", link=None, icon_image=LOGO_IMAGE_PATH)
 
 pg = st.navigation([
     st.Page(home, title="Home", icon=":material/home:"),

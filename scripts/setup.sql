@@ -3916,6 +3916,14 @@ $$;
 
 GRANT USAGE ON ALL PROCEDURES IN SCHEMA SNOWPATH_DB.ANALYTICS TO ROLE SNOWPATH_ROLE;
 
+-- Additional grants for dynamic procedure creation (AttributionAnalysis fallback)
+GRANT CREATE PROCEDURE ON SCHEMA SNOWPATH_DB.ANALYTICS TO ROLE SNOWPATH_ROLE;
+GRANT ALL ON FUTURE PROCEDURES IN SCHEMA SNOWPATH_DB.ANALYTICS TO ROLE SNOWPATH_ROLE;
+
+-- Model Registry permissions for PredictiveModeling
+GRANT CREATE MODEL ON SCHEMA SNOWPATH_DB.ANALYTICS TO ROLE SNOWPATH_ROLE;
+GRANT ALL ON FUTURE MODELS IN SCHEMA SNOWPATH_DB.ANALYTICS TO ROLE SNOWPATH_ROLE;
+
 -- ===========================================================================
 -- SECTION 10: ANALYTICS VIEWS
 -- ===========================================================================
