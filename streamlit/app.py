@@ -222,18 +222,19 @@ def home():
         
         # Module cards
         col1, col2, col3 = st.columns(3)
-            st.markdown("""
+        
+        st.markdown("""
         <h5 style="font-size: 13px; font-weight: normal; color: black; margin-top: 0px; margin-bottom: -15px;">
              <b>Sequent</b><sup>™</sup> native application allows users to easily and visually perform and deep dive into <span style="color:#29B5E8;">Path Analysis</span>, <span style="color:#29B5E8;">Attribution Analysis</span>, <span style="color:#29B5E8;">Association Analysis</span>, <span style="color:#29B5E8;">Pattern Mining</span>, and <span style="color:#29B5E8;">Behavioral Segmentation</span> by simply specifying a few parameters in drop-down menus. Leveraging advanced techniques, <b>Sequent</b><sup>™</sup> intuitively and visually helps identify touchpoints influencing customer (or machine) behaviours, targets them to create segments, performs cross-population behavioural comparisons, computes rule-based and ML-driven attribution models to understand the contribution of each event preceding a specific outcome, conducts association analysis to uncover hidden patterns and relationships between events, discovers frequent sequential patterns and behavioral signatures through advanced pattern mining, and enables sophisticated behavioral segmentation to group customers based on their journey patterns and characteristics. <b>Sequent</b><sup>™</sup> also harnesses the interpretive and generative power of LLMs thanks to Snowflake AISQL to explain journeys, attribution models, association rules, pattern insights and derive insights (summarize and analyze results, describe behaviors and even suggest actions !)
         </h5>
         """, unsafe_allow_html=True)
-            
-            st.markdown("""
+        
+        st.markdown("""
         <h5 style="font-size: 13px; font-weight: normal; color: black; margin-top: 0px; margin-bottom: -15px;">
              Visualizing and identifying paths can itself be actionable and often uncovers an area of interest for additional analysis. First, the picture revealed by path analysis can be further enriched with attribution analysis, association analysis, pattern mining, and behavioral segmentation. Attribution helps quantify the contribution of individual touchpoints to a defined outcome, association analysis uncovers relationships between events that frequently occur together, pattern mining discovers frequent sequential behaviors and hidden temporal dependencies, and behavioral segmentation groups customers into meaningful clusters based on their journey characteristics and patterns. Together, these techniques provide a comprehensive understanding of event sequences, enabling data-driven decision-making and uncovering new opportunities for optimization. Second, path insights can be used directly to predict outcomes (<span style="color:#29B5E8;">Predictive Modeling</span>) or to derive behavioral features (such as the frequency of specific patterns and sequence signatures). These features can then be integrated into existing predictive models, enhancing their accuracy and enabling deeper customer understanding through advanced segmentation strategies.
         </h5>
         """, unsafe_allow_html=True)
-            
+        
         st.markdown("""
         <div class="footer">
             Copyright &copy; 2025 Yannis Marigo. All rights reserved.
