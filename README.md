@@ -15,11 +15,10 @@ Visualizing and identifying paths can itself be actionable and often uncovers an
 ### Simple Setup
 
 **Step 1: Run the Setup Script**
-1. Navigate to the `scripts/` folder in this repository
+1. Open [`setup.sql`](scripts/setup.sql) and copy the entire contents
 2. Open **Snowflake Snowsight** (https://app.snowflake.com)
 3. Create a **new SQL Worksheet**
-4. **Paste the entire contents** of `setup.sql`
-5. Click **Run All** 
+4. **Paste the contents** and click **Run All** 
 
 The setup script will automatically:
 - ✅ Create a Snowpark-optimized warehouse (MEDIUM size)
@@ -29,9 +28,9 @@ The setup script will automatically:
 - ✅ Configure all necessary permissions and grants
 
 **Step 2: Deploy the Streamlit App**
-1. Create a **new SQL Worksheet**
-2. **Paste the entire contents** of `deploy_streamlit.sql`
-3. Click **Run All**
+1. Open [`deploy_streamlit.sql`](scripts/deploy_streamlit.sql) and copy the entire contents
+2. Create a **new SQL Worksheet**
+3. **Paste the contents** and click **Run All**
 
 This deploys the Streamlit app via Git integration from this repository.
 
@@ -52,7 +51,7 @@ Once deployment completes:
 
 ## Cleanup
 
-To remove all resources created by this quickstart, run `scripts/teardown.sql` in a SQL Worksheet. This will drop the database, warehouse, role, and Streamlit app.
+To remove all resources created by this quickstart, run [`teardown.sql`](scripts/teardown.sql) in a SQL Worksheet. This will drop the database, warehouse, role, and Streamlit app.
 
 ## Repository Structure
 
