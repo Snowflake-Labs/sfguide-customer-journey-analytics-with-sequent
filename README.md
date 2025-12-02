@@ -51,7 +51,8 @@ Once the setup completes:
 
 ```
 ├── README.md                              # This file
-├── SOLUTION_CENTER.md                     # Detailed solution documentation
+├── LEGAL.md                               # Legal information
+├── LICENSE                                # License file
 ├── scripts/
 │   └── setup.sql                          # Complete database and Streamlit deployment script
 ├── streamlit/
@@ -59,7 +60,7 @@ Once the setup completes:
 │   ├── environment.yml                    # Python dependencies
 │   ├── assets/
 │   │   └── Sequent.png
-│   └── pages/                             # 5 analytics page modules
+│   └── pages/                             # 6 analytics page modules
 │       ├── AssociationAnalysis.py
 │       ├── AttributionAnalysis.py
 │       ├── BehavioralSegmentation.py
