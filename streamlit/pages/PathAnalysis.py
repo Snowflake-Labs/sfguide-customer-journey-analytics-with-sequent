@@ -370,7 +370,7 @@ div[data-testid="stInfo"]::before {
     }
     
     .custom-container-1 h5 {
-        color: #ffffff !important;
+        color: #b0b0b0 !important;
     }
     
     /* Custom styling for all message types in dark mode */

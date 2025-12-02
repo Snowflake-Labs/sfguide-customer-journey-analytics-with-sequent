@@ -99,19 +99,24 @@ st.markdown("""
                     }
                     
                     .custom-container-1 h5 {
-                        color: #ffffff !important;
+                        color: #b0b0b0 !important;
+                    }
+                    
+                    /* Welcome message text color in dark mode */
+                    [data-testid="stMarkdownContainer"] p {
+                        color: #b0b0b0 !important;
                     }
                     
                     .footer {
-                        background-color: #1e1e1e !important;
+                        background-color: #0e1117 !important;
                         color: #cccccc !important;
-                        border-top: 1px solid #444 !important;
+                        border-top: 1px solid #262730 !important;
                     }
                     
                     /* Ensure expander content text is readable in dark mode */
                     .stExpander [data-testid="stMarkdownContainer"] h5,
                     .stExpander [data-testid="stMarkdownContainer"] p {
-                        color: #ffffff !important;
+                        color: #b0b0b0 !important;
                     }
                     
                     /* Fix table styling in dark mode */
@@ -218,20 +223,70 @@ def home():
         </p>
         """, unsafe_allow_html=True)
         
-
-        
-        # Module cards
+        # Module cards - Row 1
         col1, col2, col3 = st.columns(3)
         
-        st.markdown("""
+        with col1:
+            with st.container(border=True):
+                st.markdown("<h3 style='text-align: center; margin-top: 20px;'>Path Analysis</h3>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center;'>Uncover and compare behavioral journeys.</p>", unsafe_allow_html=True)
+                if st.button("Analyze Paths", key="path_btn", use_container_width=True):
+                    st.switch_page("pages/PathAnalysis.py")
+        
+        with col2:
+            with st.container(border=True):
+                st.markdown("<h3 style='text-align: center; margin-top: 20px;'>Pattern Mining</h3>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center;'>Discover frequent sequences and timing patterns.</p>", unsafe_allow_html=True)
+                if st.button("Explore Patterns", key="pattern_btn", use_container_width=True):
+                    st.switch_page("pages/PatternMining.py")
+        
+        with col3:
+            with st.container(border=True):
+                st.markdown("<h3 style='text-align: center; margin-top: 20px;'>Attribution Analysis</h3>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center;'>Measure touchpoint contribution to outcomes.</p>", unsafe_allow_html=True)
+                if st.button("Analyze Attribution", key="attr_btn", use_container_width=True):
+                    st.switch_page("pages/AttributionAnalysis.py")
+        
+        st.write("")
+        
+        # Module cards - Row 2
+        col4, col5, col6 = st.columns(3)
+        
+        with col4:
+            with st.container(border=True):
+                st.markdown("<h3 style='text-align: center; margin-top: 20px;'>Behavioral Segmentation</h3>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center;'>Group customers by journey patterns.</p>", unsafe_allow_html=True)
+                if st.button("Segment Customers", key="segment_btn", use_container_width=True):
+                    st.switch_page("pages/BehavioralSegmentation.py")
+        
+        with col5:
+            with st.container(border=True):
+                st.markdown("<h3 style='text-align: center; margin-top: 20px;'>Association Analysis</h3>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center;'>Uncover relationships between events.</p>", unsafe_allow_html=True)
+                if st.button("Find Associations", key="assoc_btn", use_container_width=True):
+                    st.switch_page("pages/AssociationAnalysis.py")
+        
+        with col6:
+            with st.container(border=True):
+                st.markdown("<h3 style='text-align: center; margin-top: 20px;'>Predictive Modeling</h3>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center;'>Anticipate outcomes based on sequence history.</p>", unsafe_allow_html=True)
+                if st.button("Predict Outcomes", key="predict_btn", use_container_width=True):
+                    st.switch_page("pages/PredictiveModeling.py")
+        
+        st.write("")
+        st.write("")
+        
+        # About section in expander
+        with st.expander("**ABOUT**"):
+            st.markdown("""
         <h5 style="font-size: 13px; font-weight: normal; color: black; margin-top: 0px; margin-bottom: -15px;">
-             <b>Sequent</b><sup>™</sup> native application allows users to easily and visually perform and deep dive into <span style="color:#29B5E8;">Path Analysis</span>, <span style="color:#29B5E8;">Attribution Analysis</span>, <span style="color:#29B5E8;">Association Analysis</span>, <span style="color:#29B5E8;">Pattern Mining</span>, and <span style="color:#29B5E8;">Behavioral Segmentation</span> by simply specifying a few parameters in drop-down menus. Leveraging advanced techniques, <b>Sequent</b><sup>™</sup> intuitively and visually helps identify touchpoints influencing customer (or machine) behaviours, targets them to create segments, performs cross-population behavioural comparisons, computes rule-based and ML-driven attribution models to understand the contribution of each event preceding a specific outcome, conducts association analysis to uncover hidden patterns and relationships between events, discovers frequent sequential patterns and behavioral signatures through advanced pattern mining, and enables sophisticated behavioral segmentation to group customers based on their journey patterns and characteristics. <b>Sequent</b><sup>™</sup> also harnesses the interpretive and generative power of LLMs thanks to Snowflake AISQL to explain journeys, attribution models, association rules, pattern insights and derive insights (summarize and analyze results, describe behaviors and even suggest actions !)
+             <b>Sequent</b><sup>™</sup> native application allows users to easily and visually perform and deep dive into <b>Path Analysis</b>, <b>Attribution Analysis</b>, <b>Association Analysis</b>, <b>Pattern Mining</b>, <b>Behavioral Segmentation</b> and <b>Predictive Modeling</b> by simply specifying a few parameters in drop-down menus. Leveraging advanced techniques, <b>Sequent</b><sup>™</sup> intuitively and visually helps identify touchpoints influencing customer (or machine) behaviours, targets them to create segments, performs cross-population behavioural comparisons, computes rule-based and ML-driven attribution models to understand the contribution of each event preceding a specific outcome, conducts association analysis to uncover hidden patterns and relationships between events, discovers frequent sequential patterns and behavioral signatures through advanced pattern mining, and enables sophisticated behavioral segmentation to group customers based on their journey patterns and characteristics. <b>Sequent</b><sup>™</sup> also harnesses the interpretive and generative power of LLMs thanks to Snowflake AISQL to explain journeys, attribution models, association rules, pattern insights and derive insights (summarize and analyze results, describe behaviors and even suggest actions !)
         </h5>
         """, unsafe_allow_html=True)
-        
-        st.markdown("""
+            
+            st.markdown("""
         <h5 style="font-size: 13px; font-weight: normal; color: black; margin-top: 0px; margin-bottom: -15px;">
-             Visualizing and identifying paths can itself be actionable and often uncovers an area of interest for additional analysis. First, the picture revealed by path analysis can be further enriched with attribution analysis, association analysis, pattern mining, and behavioral segmentation. Attribution helps quantify the contribution of individual touchpoints to a defined outcome, association analysis uncovers relationships between events that frequently occur together, pattern mining discovers frequent sequential behaviors and hidden temporal dependencies, and behavioral segmentation groups customers into meaningful clusters based on their journey characteristics and patterns. Together, these techniques provide a comprehensive understanding of event sequences, enabling data-driven decision-making and uncovering new opportunities for optimization. Second, path insights can be used directly to predict outcomes (<span style="color:#29B5E8;">Predictive Modeling</span>) or to derive behavioral features (such as the frequency of specific patterns and sequence signatures). These features can then be integrated into existing predictive models, enhancing their accuracy and enabling deeper customer understanding through advanced segmentation strategies.
+             Visualizing and identifying paths can itself be actionable and often uncovers an area of interest for additional analysis. First, the picture revealed by path analysis can be further enriched with attribution analysis, association analysis, pattern mining, and behavioral segmentation. Attribution helps quantify the contribution of individual touchpoints to a defined outcome, association analysis uncovers relationships between events that frequently occur together, pattern mining discovers frequent sequential behaviors and hidden temporal dependencies, and behavioral segmentation groups customers into meaningful clusters based on their journey characteristics and patterns. Together, these techniques provide a comprehensive understanding of event sequences, enabling data-driven decision-making and uncovering new opportunities for optimization. Second, path insights can be used directly to predict outcomes (<b>Predictive Modeling</b>) or to derive behavioral features (such as the frequency of specific patterns and sequence signatures). These features can then be integrated into existing predictive models, enhancing their accuracy and enabling deeper customer understanding through advanced segmentation strategies.
         </h5>
         """, unsafe_allow_html=True)
         
