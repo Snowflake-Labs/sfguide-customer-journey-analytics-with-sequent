@@ -39,7 +39,7 @@ This deploys the Streamlit app via Git integration from this repository.
 
 Once deployment completes:
 1. In Snowsight, navigate to **Projects** → **Streamlit** (left sidebar)
-2. You'll see **"Customer Journey Analytics with Sequent"**
+2. You'll see **"Sequent"**
 3. Click to open and start exploring!
 
 **All 6 analytics applications are now available:**
@@ -62,10 +62,10 @@ To remove all resources created by this quickstart, run `scripts/teardown.sql` i
 ├── LICENSE                                # License file
 ├── scripts/
 │   ├── setup.sql                          # Database, data, and stored procedures setup
-│   ├── deploy_streamlit.sql               # Streamlit app deployment via Git integration
+│   ├── deploy_streamlit.sql               # Sequent Streamlit app deployment via Git integration
 │   └── teardown.sql                       # Cleanup script to remove all resources
 ├── streamlit/
-│   ├── app.py                             # Main Streamlit application (landing page)
+│   ├── app.py                             # Sequent main application (landing page)
 │   ├── environment.yml                    # Python dependencies
 │   ├── assets/
 │   │   └── Sequent.png

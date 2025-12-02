@@ -12,7 +12,7 @@ USE ROLE ACCOUNTADMIN;
 -- ===========================================================================
 -- DROP STREAMLIT APP (if deployed)
 -- ===========================================================================
-DROP STREAMLIT IF EXISTS SEQUENT_DB.ANALYTICS.CUSTOMER_JOURNEY_ANALYTICS;
+DROP STREAMLIT IF EXISTS SEQUENT_DB.ANALYTICS.SEQUENT;
 
 -- ===========================================================================
 -- DROP GIT REPOSITORY AND API INTEGRATION (if created)

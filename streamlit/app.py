@@ -685,7 +685,7 @@ def help():
         </h5>
         """, unsafe_allow_html=True)
 
-st.logo("Sequent.png",  size="large", link=None, icon_image="Sequent.png")
+st.logo("assets/Sequent.png",  size="large", link=None, icon_image="assets/Sequent.png")
 
 pg = st.navigation([
     st.Page(home, title="Home", icon=":material/home:"),

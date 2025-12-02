@@ -33,22 +33,22 @@ CREATE OR REPLACE GIT REPOSITORY SEQUENT_DB.ANALYTICS.GITHUB_REPO_SEQUENT
 ALTER GIT REPOSITORY SEQUENT_DB.ANALYTICS.GITHUB_REPO_SEQUENT FETCH;
 
 -- 4. Create Streamlit app from GitHub
-CREATE OR REPLACE STREAMLIT SEQUENT_DB.ANALYTICS.CUSTOMER_JOURNEY_ANALYTICS
+CREATE OR REPLACE STREAMLIT SEQUENT_DB.ANALYTICS.SEQUENT
   FROM '@SEQUENT_DB.ANALYTICS.GITHUB_REPO_SEQUENT/branches/main/streamlit/'
   MAIN_FILE = 'app.py'
   QUERY_WAREHOUSE = 'SEQUENT_WH'
-  TITLE = 'Customer Journey Analytics with Sequent'
+  TITLE = 'Sequent'
   COMMENT = '{"origin":"sf_sit", "name":"sfguide_customer_journey_analytics_sequent", "version":{"major":1, "minor":0}, "attributes":{"is_quickstart":1, "source":"streamlit"}}';
 
 -- 5. Add live version
-ALTER STREAMLIT SEQUENT_DB.ANALYTICS.CUSTOMER_JOURNEY_ANALYTICS ADD LIVE VERSION FROM LAST;
+ALTER STREAMLIT SEQUENT_DB.ANALYTICS.SEQUENT ADD LIVE VERSION FROM LAST;
 
 -- Grant access to the Streamlit app
-GRANT USAGE ON STREAMLIT SEQUENT_DB.ANALYTICS.CUSTOMER_JOURNEY_ANALYTICS TO ROLE SEQUENT_ROLE;
+GRANT USAGE ON STREAMLIT SEQUENT_DB.ANALYTICS.SEQUENT TO ROLE SEQUENT_ROLE;
 
 -- ===========================================================================
 -- STREAMLIT DEPLOYMENT COMPLETE
 -- ===========================================================================
--- Navigate to: Snowsight > Projects > Streamlit > "Customer Journey Analytics with Sequent"
+-- Navigate to: Snowsight > Projects > Streamlit > "Sequent"
 -- ===========================================================================
 
