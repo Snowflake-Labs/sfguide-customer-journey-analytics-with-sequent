@@ -206,7 +206,7 @@ def home():
         with st.container(border=True):
             col1, col2, col3 = st.columns([1, 3, 1])
             with col2:
-                st.image("Sequent.png", use_container_width=True)
+                st.image("assets/Sequent.png", use_container_width=True)
         
         # Centered welcome message
         st.markdown("""
