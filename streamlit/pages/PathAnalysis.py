@@ -1482,9 +1482,6 @@ with tab1:
             # **Column Selection (Only if a database, schema, and table are selected - cached)**
             if database and schema and tbl:
                 colsdf = fetch_columns(session, database, schema, tbl)
-            
-            # Initialize remaining_columns as empty to prevent undefined errors
-            remaining_columns = pd.Series(dtype='object')
 
             col1, col2, col3 = st.columns([4,4,4])
             with col1:
@@ -1752,11 +1749,7 @@ with tab1:
                         # Get the remaining columns after excluding the selected ones
                         remaining_columns = colsdf[~colsdf['COLUMN_NAME'].isin([uid, evt, tmstp])]['COLUMN_NAME']
                 else :
-                    # Handle case where sess != None AND (unitoftime != None OR timeout != None)
-                    partitionby=f"partition by {uid},{sess},SESSION "
-                    groupby = f"group by {uid}, match_number,{sess},SESSION "
-                    # Get the remaining columns after excluding the selected ones
-                    remaining_columns = colsdf[~colsdf['COLUMN_NAME'].isin([uid, evt, tmstp,sess])]['COLUMN_NAME']
+                    st.write("")
                     
                     
     #--------------------------------------
@@ -4084,9 +4077,6 @@ with tab2:
             # **Column Selection (Only if a database, schema, and table are selected - cached)**
             if database and schema and tbl:
                 colsdf = fetch_columns(session, database, schema, tbl)
-            
-            # Initialize remaining_columns as empty to prevent undefined errors
-            remaining_columns = pd.Series(dtype='object')
 
             col1, col2, col3 = st.columns([4,4,4])
             with col1:
@@ -4230,11 +4220,7 @@ with tab2:
                         # Get the remaining columns after excluding the selected ones
                         remaining_columns = colsdf[~colsdf['COLUMN_NAME'].isin([uid, evt, tmstp])]['COLUMN_NAME']
                 else :
-                    # Handle case where sess != None AND (unitoftime != None OR timeout != None)
-                    partitionby=f"partition by {uid},{sess},SESSION "
-                    groupby = f"group by {uid}, match_number,{sess},SESSION "
-                    # Get the remaining columns after excluding the selected ones
-                    remaining_columns = colsdf[~colsdf['COLUMN_NAME'].isin([uid, evt, tmstp,sess])]['COLUMN_NAME']
+                    st.write("")
                 #--------------------------------------
                 #FILTERS
                 #--------------------------------------
@@ -4544,7 +4530,7 @@ with tab2:
                 col1, col2, col3 = st.columns([2.4,2.4,10])
             
                 # SQL query to get the min start date
-                minstartdt1 = f"SELECT TO_VARCHAR(MIN({tmstp1}), 'YYYY/MM/DD') FROM {database1}.{schema1}.{tbl1}"
+                minstartdt1 = f"SELECT TO_VARCHAR(MIN({tmstp1}), 'YYYY/MM/DD') FROM {tbl1}"
                 # Get min start date :
                 defstartdt1_instance = session.sql(minstartdt1).collect()
                 defstartdt1_str_instance = defstartdt1_instance[0][0]
@@ -4592,7 +4578,7 @@ with tab2:
                         partitionby1=f"partition by {uid1},{sess1} "
                         groupby1 = f"group by {uid1}, match_number,{sess1} "
                         # Get the remaining columns after excluding the selected ones
-                        remaining_columns1 = colsdf1[~colsdf1['COLUMN_NAME'].isin([uid1, evt1, tmstp1,sess1])]['COLUMN_NAME']
+                        remaining_columns = colsdf1[~colsdf1['COLUMN_NAME'].isin([uid1, evt1, tmstp1,sess1])]['COLUMN_NAME']
     
                 elif sess1 == None and unitoftime1 !=None and timeout1 !=None:
                         partitionby1=f"partition by {uid1},SESSION "
@@ -4600,11 +4586,7 @@ with tab2:
                         # Get the remaining columns after excluding the selected ones
                         remaining_columns1 = colsdf1[~colsdf1['COLUMN_NAME'].isin([uid1, evt1, tmstp1])]['COLUMN_NAME']
                 else :
-                    # Handle case where sess1 != None AND (unitoftime1 != None OR timeout1 != None)
-                    partitionby1=f"partition by {uid1},{sess1},SESSION "
-                    groupby1 = f"group by {uid1}, match_number,{sess1},SESSION "
-                    # Get the remaining columns after excluding the selected ones
-                    remaining_columns1 = colsdf1[~colsdf1['COLUMN_NAME'].isin([uid1, evt1, tmstp1,sess1])]['COLUMN_NAME']
+                    st.write("")
             
                 # --------------------------------------
                 # FILTERS (Comp)

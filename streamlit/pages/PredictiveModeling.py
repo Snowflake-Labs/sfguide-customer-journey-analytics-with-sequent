@@ -591,10 +591,6 @@ with st.expander("Input Parameters (Primary Class)", icon=":material/settings:")
                
                  with col2:
                      timeout=  st.number_input( "Insert a timeout value",key='timeoutref',value=None, min_value=1, format="%d", placeholder="Type a number",help="Value of the session time window.")
-             
-             # Initialize remaining_columns as empty to prevent undefined errors
-             remaining_columns = pd.Series(dtype='object')
-             
              if sess == None and unitoftime==None and timeout==None: 
                      partitionby = f"partition by {uid}"
                      groupby = f"group by {uid}, match_number "

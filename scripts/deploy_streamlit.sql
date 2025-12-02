@@ -34,7 +34,7 @@ ALTER GIT REPOSITORY SEQUENT_DB.ANALYTICS.GITHUB_REPO_SEQUENT FETCH;
 -- 4. Create Streamlit app from GitHub
 CREATE OR REPLACE STREAMLIT SEQUENT_DB.ANALYTICS.SEQUENT
   FROM '@SEQUENT_DB.ANALYTICS.GITHUB_REPO_SEQUENT/branches/main/streamlit/'
-  MAIN_FILE = 'app.py'
+  MAIN_FILE = 'sequent.py'
   QUERY_WAREHOUSE = 'SEQUENT_WH'
   TITLE = 'Sequent'
   COMMENT = '{"origin":"sf_sit", "name":"sfguide_customer_journey_analytics_sequent", "version":{"major":1, "minor":0}, "attributes":{"is_quickstart":1, "source":"streamlit"}}';
