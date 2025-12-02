@@ -153,7 +153,7 @@ st.markdown("""
 def home():
         st.write("")
         st.write("")
-        st.image("../snowpathimage.png",use_container_width=True)
+        st.image("assets/snowpathimage.png",use_container_width=True)
         #st.image("https://i.postimg.cc/8PWc0cMf/snowpathlogo2.png",use_container_width=True)
     
         with st.expander("**ABOUT**"):
@@ -619,7 +619,7 @@ def help():
         </h5>
         """, unsafe_allow_html=True)
 
-st.logo("../snowpathlogo.png",  size="large", link=None, icon_image="../snowpathlogo.png")
+st.logo("assets/snowpathlogo.png",  size="large", link=None, icon_image="assets/snowpathlogo.png")
 
 pg = st.navigation([
     st.Page(home, title="Home", icon=":material/home:"),
