@@ -601,7 +601,7 @@ def add_writeback_functionality_segments_improved(results_df, clustering_method,
                         st.error(f"Error writing to Snowflake: {str(e)}", icon=":material/chat_error:")
             
 
-# Page config - handled by app.py
+# Page config - handled by sequent.py
 #st.set_page_config(page_title="Event2Vec Behavioral Segmentation", layout="wide")
 
 # Custom CSS for consistent styling

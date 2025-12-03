@@ -6,6 +6,30 @@ Sequent™ native application allows users to easily and visually perform and de
 
 Visualizing and identifying paths can itself be actionable and often uncovers an area of interest for additional analysis. First, the picture revealed by path analysis can be further enriched with attribution analysis, association analysis, pattern mining, and behavioral segmentation. Attribution helps quantify the contribution of individual touchpoints to a defined outcome, association analysis uncovers relationships between events that frequently occur together, pattern mining discovers frequent sequential behaviors and hidden temporal dependencies, and behavioral segmentation groups customers into meaningful clusters based on their journey characteristics and patterns. Together, these techniques provide a comprehensive understanding of event sequences, enabling data-driven decision-making and uncovering new opportunities for optimization. Second, path insights can be used directly to predict outcomes (Predictive Modeling) or to derive behavioral features (such as the frequency of specific patterns and sequence signatures). These features can then be integrated into existing predictive models, enhancing their accuracy and enabling deeper customer understanding through advanced segmentation strategies.
 
+## Repository Structure
+
+```
+├── README.md                              # This file
+├── LEGAL.md                               # Legal information
+├── LICENSE                                # License file
+├── scripts/
+│   ├── setup.sql                          # Database, data, and stored procedures setup
+│   ├── deploy_streamlit.sql               # Sequent Streamlit app deployment via Git integration
+│   └── teardown.sql                       # Cleanup script to remove all resources
+├── streamlit/
+│   ├── sequent.py                         # Sequent main application (landing page)
+│   ├── environment.yml                    # Python dependencies
+│   ├── assets/
+│   │   └── Sequent.png
+│   └── pages/                             # 6 analytics page modules
+│       ├── AssociationAnalysis.py
+│       ├── AttributionAnalysis.py
+│       ├── BehavioralSegmentation.py
+│       ├── PathAnalysis.py
+│       ├── PatternMining.py
+│       └── PredictiveModeling.py
+```
+
 ## Getting Started
 
 ### Prerequisites
@@ -52,27 +76,3 @@ Once deployment completes:
 ## Cleanup
 
 To remove all resources created by this quickstart, run [`teardown.sql`](scripts/teardown.sql) in a SQL Worksheet. This will drop the database, warehouse, role, and Streamlit app.
-
-## Repository Structure
-
-```
-├── README.md                              # This file
-├── LEGAL.md                               # Legal information
-├── LICENSE                                # License file
-├── scripts/
-│   ├── setup.sql                          # Database, data, and stored procedures setup
-│   ├── deploy_streamlit.sql               # Sequent Streamlit app deployment via Git integration
-│   └── teardown.sql                       # Cleanup script to remove all resources
-├── streamlit/
-│   ├── app.py                             # Sequent main application (landing page)
-│   ├── environment.yml                    # Python dependencies
-│   ├── assets/
-│   │   └── Sequent.png
-│   └── pages/                             # 6 analytics page modules
-│       ├── AssociationAnalysis.py
-│       ├── AttributionAnalysis.py
-│       ├── BehavioralSegmentation.py
-│       ├── PathAnalysis.py
-│       ├── PatternMining.py
-│       └── PredictiveModeling.py
-```
