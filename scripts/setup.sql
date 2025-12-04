@@ -4,6 +4,9 @@
  * ===========================================================================
  */
 
+-- Set query tag for tracking
+ALTER SESSION SET query_tag = '{"origin":"sf_sit-is","name":"customer_journey_analytics_with_sequent","version":{"major":1,"minor":0},"attributes":{"is_quickstart":1,"source":"sql"}}';
+
 -- ===========================================================================
 -- CONFIGURATION
 -- ===========================================================================
